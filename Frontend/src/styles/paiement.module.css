@@ -1,0 +1,176 @@
+/* Conteneur global de la page de paiement */
+.paiementContainer {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Titre principal */
+.paiementContainer h2 {
+  text-align: center;
+  color: #1e3a60;
+  margin-bottom: 25px;
+  font-size: 26px;
+  font-weight: 700;
+}
+
+/* Formulaire de paiement */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Groupe d'input */
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.inputGroup label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333333;
+}
+
+.inputGroup input {
+  padding: 12px 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 15px;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.inputGroup input:focus {
+  border-color: #1e3a60;
+  box-shadow: 0 0 0 3px rgba(30, 58, 96, 0.12);
+}
+
+/* Bouton de soumission (Valider le paiement) */
+.btnPay {
+  background-color: #1e3a60;
+  color: white;
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  margin-top: 10px;
+}
+
+.btnPay:hover {
+  background-color: #152945;
+}
+
+.btnPay:active {
+  transform: scale(0.98);
+}
+
+/* Message d'état (Succès / Erreur) */
+.message {
+  margin-top: 20px;
+  padding: 12px;
+  border-radius: 6px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 14px;
+  background-color: #f3f4f6;
+  color: #1e3a60;
+}
+
+/* Carte du Billet Électronique généré */
+.billetCard {
+  margin-top: 30px;
+  padding: 25px;
+  border: 2px dashed #1e3a60;
+  background: #fdfdfe;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(30, 58, 96, 0.05);
+}
+
+.billetCard h3 {
+  color: #1e3a60;
+  margin-bottom: 15px;
+  font-size: 20px;
+  border-bottom: 2px solid #e5e7eb;
+  padding-bottom: 8px;
+}
+
+.billetCard p {
+  margin: 10px 0;
+  font-size: 15px;
+  color: #4b5563;
+}
+
+.billetCard strong {
+  color: #1f2937;
+}
+
+/* Statut validé en vert */
+.validStatus {
+  color: #10b981;
+  font-weight: bold;
+  font-size: 16px;
+  margin-top: 15px;
+  display: block;
+}
+
+/* Bouton de Téléchargement / Impression */
+.btnDownload {
+  display: inline-block;
+  width: 100%;
+  margin-top: 20px;
+  padding: 12px 18px;
+  background-color: #10b981;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.2s ease;
+}
+
+.btnDownload:hover {
+  background-color: #059669;
+}
+
+/* =================================================== */
+/* REGLES D'IMPRESSION (Quand l'utilisateur télécharge en PDF) */
+/* =================================================== */
+@media print {
+  /* Cacher tout le reste de la page (Formulaire, Titres, Navbar, etc.) */
+  body * {
+    visibility: hidden;
+  }
+
+  /* Afficher UNIQUEMENT la carte du billet */
+  .billetCard, .billetCard * {
+    visibility: visible;
+  }
+
+  .billetCard {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    margin: 0;
+    padding: 20px;
+    border: 2px solid #1e3a60;
+    box-shadow: none;
+  }
+
+  /* Cacher le bouton de téléchargement sur le fichier PDF final */
+  .btnDownload {
+    display: none !important;
+  }
+}

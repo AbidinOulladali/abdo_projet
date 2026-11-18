@@ -1,0 +1,11 @@
+.panier {
+  width: 250px;
+  background-color: #f8f9fa;
+  padding: 20px;
+  flex-shrink: 0;
+}
+
+.panier h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}

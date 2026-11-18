@@ -1,0 +1,15 @@
+.banner {
+  background-color: #1e3a60;
+  color: white;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.banner nav a {
+  color: white;
+  margin-left: 15px;
+  text-decoration: none;
+}

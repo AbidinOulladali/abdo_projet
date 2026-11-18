@@ -1,0 +1,18 @@
+.content {
+  flex: 1;
+  padding: 20px;
+  background-color: #ffffff;
+}
+
+.content h2 {
+  margin-bottom: 15px;
+}
+
+.carte {
+  border: 1px solid #ddd;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  background-color: #fff;
+  text-align: center;
+}
