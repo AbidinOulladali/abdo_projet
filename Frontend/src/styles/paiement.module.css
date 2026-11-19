@@ -1,176 +1,232 @@
-/* Conteneur global de la page de paiement */
-.paiementContainer {
-  max-width: 600px;
-  margin: 40px auto;
-  padding: 30px;
-  background-color: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+.panel {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: var(--shadow);
 }
 
-/* Titre principal */
-.paiementContainer h2 {
-  text-align: center;
-  color: #1e3a60;
-  margin-bottom: 25px;
-  font-size: 26px;
+.title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: var(--primary-dark);
+}
+
+.successBanner {
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  margin-bottom: 16px;
+  background: #ecfdf5;
+  color: var(--success);
+  border: 1px solid #a7f3d0;
+}
+
+.emptyText {
+  margin-bottom: 16px;
+  color: var(--muted);
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.itemInfo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.thumb {
+  width: 68px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.itemTitle {
+  font-size: 0.96rem;
   font-weight: 700;
 }
 
-/* Formulaire de paiement */
-.form {
+.itemSub {
+  font-size: 0.84rem;
+  color: var(--muted);
+}
+
+.qtyBox {
   display: flex;
-  flex-direction: column;
-  gap: 20px;
+  align-items: center;
+  gap: 6px;
 }
 
-/* Groupe d'input */
-.inputGroup {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.inputGroup label {
-  font-size: 14px;
-  font-weight: 600;
-  color: #333333;
-}
-
-.inputGroup input {
-  padding: 12px 14px;
-  border: 1px solid #d1d5db;
-  border-radius: 8px;
-  font-size: 15px;
-  outline: none;
-  transition: all 0.2s ease;
-}
-
-.inputGroup input:focus {
-  border-color: #1e3a60;
-  box-shadow: 0 0 0 3px rgba(30, 58, 96, 0.12);
-}
-
-/* Bouton de soumission (Valider le paiement) */
-.btnPay {
-  background-color: #1e3a60;
-  color: white;
-  padding: 14px;
-  border: none;
-  border-radius: 8px;
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.2s ease, transform 0.1s ease;
-  margin-top: 10px;
-}
-
-.btnPay:hover {
-  background-color: #152945;
-}
-
-.btnPay:active {
-  transform: scale(0.98);
-}
-
-/* Message d'état (Succès / Erreur) */
-.message {
-  margin-top: 20px;
-  padding: 12px;
+.qtyBtn {
+  padding: 5px 9px;
   border-radius: 6px;
-  text-align: center;
-  font-weight: 600;
-  font-size: 14px;
-  background-color: #f3f4f6;
-  color: #1e3a60;
-}
-
-/* Carte du Billet Électronique généré */
-.billetCard {
-  margin-top: 30px;
-  padding: 25px;
-  border: 2px dashed #1e3a60;
-  background: #fdfdfe;
-  border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(30, 58, 96, 0.05);
-}
-
-.billetCard h3 {
-  color: #1e3a60;
-  margin-bottom: 15px;
-  font-size: 20px;
-  border-bottom: 2px solid #e5e7eb;
-  padding-bottom: 8px;
-}
-
-.billetCard p {
-  margin: 10px 0;
-  font-size: 15px;
-  color: #4b5563;
-}
-
-.billetCard strong {
-  color: #1f2937;
-}
-
-/* Statut validé en vert */
-.validStatus {
-  color: #10b981;
-  font-weight: bold;
-  font-size: 16px;
-  margin-top: 15px;
-  display: block;
-}
-
-/* Bouton de Téléchargement / Impression */
-.btnDownload {
-  display: inline-block;
-  width: 100%;
-  margin-top: 20px;
-  padding: 12px 18px;
-  background-color: #10b981;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  font-size: 15px;
-  font-weight: bold;
+  border: 1px solid var(--border);
+  background: #fff;
   cursor: pointer;
-  text-align: center;
-  transition: background-color 0.2s ease;
+  font-weight: 700;
 }
 
-.btnDownload:hover {
-  background-color: #059669;
+.delBtn {
+  padding: 5px 10px;
+  border-radius: 6px;
+  border: none;
+  background: #fee2e2;
+  color: var(--danger);
+  cursor: pointer;
+  font-weight: 600;
 }
 
-/* =================================================== */
-/* REGLES D'IMPRESSION (Quand l'utilisateur télécharge en PDF) */
-/* =================================================== */
-@media print {
-  /* Cacher tout le reste de la page (Formulaire, Titres, Navbar, etc.) */
-  body * {
-    visibility: hidden;
-  }
+.summary {
+  max-width: 360px;
+  margin-left: auto;
+  margin-top: 18px;
+}
 
-  /* Afficher UNIQUEMENT la carte du billet */
-  .billetCard, .billetCard * {
-    visibility: visible;
-  }
+.line {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  font-size: 0.94rem;
+}
 
-  .billetCard {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    margin: 0;
-    padding: 20px;
-    border: 2px solid #1e3a60;
-    box-shadow: none;
-  }
+.total {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--primary-dark);
+}
 
-  /* Cacher le bouton de téléchargement sur le fichier PDF final */
-  .btnDownload {
-    display: none !important;
+.actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.btnPrimary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: none;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.92rem;
+  cursor: pointer;
+}
+
+.btnOutline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--primary);
+  font-weight: 600;
+  font-size: 0.92rem;
+  cursor: pointer;
+}
+
+.paymentBox {
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+}
+
+.paymentTitle {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+  margin-bottom: 12px;
+}
+
+.paymentOptions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.paymentOption {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  background: #fff;
+}
+
+.paymentOptionActive {
+  border-color: var(--accent);
+  background: #eff6ff;
+  color: var(--accent);
+}
+
+.cardFields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.cardFieldFull {
+  grid-column: 1 / -1;
+}
+
+.fieldLabel {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.fieldInput {
+  padding: 9px 11px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 0.92rem;
+}
+
+.fieldInput:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.paymentNote {
+  font-size: 0.86rem;
+  color: var(--muted);
+  background: #f9fafb;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 12px;
+  margin-bottom: 16px;
+}
+
+@media (max-width: 640px) {
+  .cardFields {
+    grid-template-columns: 1fr;
   }
 }
